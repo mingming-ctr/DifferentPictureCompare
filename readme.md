@@ -15,4 +15,9 @@ python.exe -m pip install --upgrade pip
 
 pip install requirements.txt
 
++ 3 运行 python .\showDifferentPic.py
+image.png
+
+
+
 
