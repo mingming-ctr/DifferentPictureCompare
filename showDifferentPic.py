@@ -4,11 +4,11 @@ import numpy as np
 对比2幅图片的差异，并将2幅图片的差异在一张图片中以绘制边缘的形式表示出来
 """
 
-# img1 = cv2.imread('images/huojia1.jpg')#没有东西的图片
-# img2 = cv2.imread('images/huojia2.jpg')#有东西的图片
+img1 = cv2.imread('images/huojia1.jpg')#没有东西的图片
+img2 = cv2.imread('images/huojia2.jpg')#有东西的图片
 
-img1 = cv2.imread('images/test/gray02.jpg')#没有东西的图片
-img2 = cv2.imread('images/test/gray01.jpg')#有东西的图片
+# img1 = cv2.imread('images/test/gray02.jpg')#没有东西的图片
+# img2 = cv2.imread('images/test/gray01.jpg')#有东西的图片
 
 img = cv2.absdiff(img1, img2)#2张图片中的差异部分
 
@@ -41,8 +41,9 @@ closed = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, kernel)
 ret, binary = cv2.threshold(closed, 250, 255, cv2.THRESH_BINARY)
 # cv2.imshow("binary", binary)
 
+
 # 找到轮廓
-_, contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+(contours,hierarchy )= cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 # 绘制轮廓
 print(len(contours))
 for i in range(1,len(contours)):
